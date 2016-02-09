@@ -3,10 +3,19 @@ class Dice {
   constructor(sides) {
     this.sides = sides;
     this.mods = [];
+    this.tmpMods = [];
   }
 
   _random() {
     return (Math.random() * this.sides) + 1;
+  }
+
+  _refreshTmpMods() {
+    this.tmpMods.forEach((mod, i) => {
+      if (--mod.times === 0) { // eslint-disable-line no-param-reassign
+        delete this.tmpMods[i];
+      }
+    });
   }
 
   roll(times) {
@@ -16,19 +25,17 @@ class Dice {
     for (let i = 0; i < t; i++) {
       res.push(Math.floor(
         this._random() +
-        this.getModsSum()
+        this.getModsSum() +
+        this.getTmpModsSum()
       ));
+
+      this._refreshTmpMods();
     }
 
     return res.length === 1 ? res[0] : res;
   }
 
   addMod(mod) {
-    if (Array.isArray(mod)) {
-      mod.forEach((m) => this.addMod(m));
-      return this;
-    }
-
     if (isNaN(mod)) {
       throw new Error('Invalid mod type.');
     }
@@ -54,6 +61,29 @@ class Dice {
   getModsSum() {
     let total = 0;
     this.mods.forEach(mod => total += mod);
+    return total;
+  }
+
+  addTmpMod(val, t) {
+    const times = t || 1;
+    const mod = { val, times };
+
+    if (isNaN(mod.val) || isNaN(mod.times)) {
+      throw new Error('Invalid mod.');
+    }
+
+    this.tmpMods.push(mod);
+    return this;
+  }
+
+  resetTmpMods() {
+    this.tmpMods = [];
+    return this;
+  }
+
+  getTmpModsSum() {
+    let total = 0;
+    this.tmpMods.forEach(mod => total += mod.val);
     return total;
   }
 }
