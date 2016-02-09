@@ -11,19 +11,15 @@ class Dice {
 
   roll(times) {
     const t = times || 1;
-    let res;
+    const res = [];
 
-    if (t === 1) {
-      res = this._random();
-    } else {
-      res = [];
-
-      for (let i = 0; i < t; i++) {
-        res.push(this.roll());
-      }
+    for (let i = 0; i < t; i++) {
+      res.push(Math.floor(
+        this._random()
+      ));
     }
 
-    return res;
+    return res.length === 1 ? res[0] : res;
   }
 }
 
