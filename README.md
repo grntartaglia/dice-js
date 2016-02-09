@@ -1,6 +1,6 @@
 # Dice.js
 
-> Play some dice with JavaScript.
+> Roll some dice with JavaScript.
 
 ## Example
 
