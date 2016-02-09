@@ -1,0 +1,11 @@
+{
+  "name": "dice-js",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Gabriel Tartaglia <gabriel@cappu.com.br>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.0"
+  }
+}
