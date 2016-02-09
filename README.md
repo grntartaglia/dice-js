@@ -2,6 +2,12 @@
 
 > Roll some dice with JavaScript.
 
+## Installation
+
+```shell
+npm install cappu-dice
+```
+
 ## Example
 
 ```js
