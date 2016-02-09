@@ -1,7 +1,7 @@
 {
   "name": "dice-js",
   "description": "Play some dice with JavaScript",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "dice.js",
   "author": "Gabriel Tartaglia <gabriel@cappu.com.br>",
   "license": "MIT",
