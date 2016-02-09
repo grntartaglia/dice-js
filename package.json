@@ -1,7 +1,7 @@
 {
   "name": "cappu-dice",
   "description": "Roll some dice with JavaScript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dice.js",
   "author": "Gabriel Tartaglia <gabriel@cappu.com.br>",
   "license": "MIT",
